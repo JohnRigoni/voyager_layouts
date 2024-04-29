@@ -53,6 +53,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case TD(DANCE_0):
+            return TAPPING_TERM + 40;
         case LT(1,KC_TAB):
             return TAPPING_TERM -20;
         case MT(MOD_LSFT, KC_BSPC):
@@ -184,6 +186,7 @@ void dance_0_reset(tap_dance_state_t *state, void *user_data);
 void dance_0_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[0].step = dance_step(state);
     switch (dance_state[0].step) {
+        case SINGLE_HOLD: register_code16(KC_LEFT_CTRL); break;
         case DOUBLE_TAP: layer_move(3); break;
     }
 }
@@ -191,6 +194,7 @@ void dance_0_finished(tap_dance_state_t *state, void *user_data) {
 void dance_0_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[0].step) {
+        case SINGLE_HOLD: unregister_code16(KC_LEFT_CTRL); break;
     }
     dance_state[0].step = 0;
 }
