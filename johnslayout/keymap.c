@@ -83,7 +83,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LSFT, KC_BSPC):
             return TAPPING_TERM -30;
         case TD(DANCE_1):
-            return TAPPING_TERM + 320;
+            return TAPPING_TERM + 570;
         case MT(MOD_RALT, KC_DOT):
             return TAPPING_TERM + 20;
         case TD(DANCE_2):
@@ -93,7 +93,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LT(1,KC_ENTER):
             return TAPPING_TERM -20;
         case TD(DANCE_7):
-            return TAPPING_TERM + 40;
+            return TAPPING_TERM + 60;
         default:
             return TAPPING_TERM;
     }
