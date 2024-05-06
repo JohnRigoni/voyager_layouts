@@ -262,6 +262,7 @@ void dance_1_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[1].step = dance_step(state);
     switch (dance_state[1].step) {
         case DOUBLE_TAP: register_code16(LALT(LGUI(KC_B))); break;
+        case DOUBLE_HOLD: register_code16(LALT(LGUI(LSFT(KC_B)))); break;
     }
 }
 
@@ -269,6 +270,7 @@ void dance_1_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[1].step) {
         case DOUBLE_TAP: unregister_code16(LALT(LGUI(KC_B))); break;
+        case DOUBLE_HOLD: unregister_code16(LALT(LGUI(LSFT(KC_B)))); break;
     }
     dance_state[1].step = 0;
 }
